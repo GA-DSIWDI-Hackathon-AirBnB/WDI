@@ -126,39 +126,35 @@ export default class App extends Component {
   render() {
     return (
       <div id="supercontainer">
-<header><h1>APP NAME</h1></header>
-
+        <header><h1>APP NAME</h1></header>
         <div id="container">
+          <Form
+            numPeople={this.numPeople.bind(this)}
+            numRooms={this.numRooms.bind(this)}
+            typeRoom={this.typeRoom.bind(this)}
+            borough={this.borough.bind(this)}
+            man={this.state.man}
+            queen={this.state.queen}
+            brok={this.state.brok}
+            stat={this.state.stat}
+            bronx={this.state.bronx}
+          />
+          <button onClick={this.console.bind(this)}>Check States</button>
 
-        <Form
-          numPeople={this.numPeople.bind(this)}
-          numRooms={this.numRooms.bind(this)}
-          typeRoom={this.typeRoom.bind(this)}
-          borough={this.borough.bind(this)}
-          man={this.state.man}
-          queen={this.state.queen}
-          brok={this.state.brok}
-          stat={this.state.stat}
-          bronx={this.state.bronx}
-        />
-                <button onClick={this.console.bind(this)}>Check States</button>
-
-        <Chart
-          type={"bar"}
-          width={400}
-          height={400}
-          margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
-          showTooltips={true}
-          data={this.state.data}
-        />
-
-        </div>
-         <div id="footer"><h2>COPYRIGHT 2016</h2></div>
+          <Chart
+            type={"bar"}
+            width={400}
+            height={400}
+            margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
+            showTooltips={true}
+            data={this.state.data}
+          />
 
         </div>
+        <div id="footer"><h2>COPYRIGHT 2016</h2></div>
+
+      </div>
 
     );
   }
 }
-
-

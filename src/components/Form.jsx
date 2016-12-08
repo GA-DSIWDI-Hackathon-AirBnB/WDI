@@ -10,20 +10,20 @@ export default class Form extends Component {
         <p>Rooms</p>
         <input id="rooms"type="number" name="rooms" min="1" onChange={this.props.numRooms} />
         <div id="select1">
-        <select onChange={this.props.typeRoom}>
-          <option value="Private room">Private Room</option>
-          <option value="Shared room">Shared Room</option>
-          <option value="Entire home/apt">Entire Home</option>
-        </select>
+          <select onChange={this.props.typeRoom}>
+            <option value="Private room">Private Room</option>
+            <option value="Shared room">Shared Room</option>
+            <option value="Entire home/apt">Entire Home</option>
+          </select>
         </div>
         <div id="select2">
-        <select onChange={this.props.borough}>
-          <option value="Manhattan">Manhattan</option>
-          <option value="Bronx">Bronx</option>
-          <option value="Brooklyn">Brooklyn</option>
-          <option value="Queens">Queens</option>
-          <option value="Staten Island">Staten Island</option>
-        </select>
+          <select onChange={this.props.borough}>
+            <option value="Manhattan">Manhattan</option>
+            <option value="Bronx">Bronx</option>
+            <option value="Brooklyn">Brooklyn</option>
+            <option value="Queens">Queens</option>
+            <option value="Staten Island">Staten Island</option>
+          </select>
         </div>
       </div>
     );
