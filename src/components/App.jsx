@@ -52,6 +52,44 @@ export default class App extends Component {
     })
     .catch(err => console.log(err))
   }
+
+  sendMenuResp(){
+    console.log('posting');
+    fetch('http://localhost:5000/result', {
+      headers: {
+        'Content-Type':'application/json'
+      },
+      method:'POST',
+      mode: 'cors',
+      body: JSON.stringify({
+        borough: "Manhattan",
+        neighbourhood: "Upper East Side",
+        room_type: "Private room",
+        accommodates: 1,
+        bedrooms: 1
+      })
+    })
+    .then(() => {
+      console.log('sent');
+      this.getDataResp()
+    })
+    .catch(err => console.log(err))
+  }
+
+  getDataResp(){
+    console.log('geting');
+    fetch('http://localhost:5000/result', {
+      method:'GET',
+      mode: 'cors',
+      dataType: 'json'
+    })
+    .then(r => r.json())
+    .then((data) => {
+      console.log(data);
+    })
+    .catch(err => console.log(err))
+  }
+
   numPeople(e) {
     this.setState({
       people: e.target.value,
@@ -140,6 +178,7 @@ export default class App extends Component {
             bronx={this.state.bronx}
           />
           <button onClick={this.console.bind(this)}>Check States</button>
+          <button onClick={() => this.sendMenuResp()}>Send Menu Choices</button>
 
           <Chart
             type={"bar"}
