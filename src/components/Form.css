@@ -1,0 +1,32 @@
+.form{
+  justify-content: center;
+  margin: 15px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+select{
+  background-color: #D65037;
+  color: white;
+}
+#people{
+width: 30px;
+border-radius: 5px;
+}
+#rooms{
+width: 30px;
+border-radius: 5px;
+
+}
+input{
+  margin: 10px;
+}
+#select1{
+margin: 10px;
+}
+#select2{
+margin: 10px;
+}
+p{
+  margin: 10px;
+}
