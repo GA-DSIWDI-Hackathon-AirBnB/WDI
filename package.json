@@ -32,7 +32,7 @@
     "path": "^0.12.7",
     "pg-promise": "^5.2.7",
     "react-dropdown": "^1.2.0",
-    "react-dropdown-input": "^0.1.11"
+    "react-dropdown-input": "^0.1.11",
   },
   "devDependencies": {
     "babel": "^6.5.2",
