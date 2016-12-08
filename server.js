@@ -18,3 +18,19 @@ app.use((err, req, res, next) => {
   console.error(err, next);
   res.status(500).send('Something brokeded!');
 });
+
+
+/* Request
+* Burough - string
+* Neighborhood - string
+* Bedrooms - int
+* accamodates - int
+* private/shared/entire - string
+*
+* Response
+* 5 floats
+*
+*
+*
+*
+*/
