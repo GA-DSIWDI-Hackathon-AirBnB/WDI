@@ -51,11 +51,11 @@ export default class App extends Component {
           data={this.state.data}
         />
         <DropdownInput
-         options={searchNames}
-         defaultValue={this.props.initialValue}
-         menuClassName='dropdown-input'
-        onSelect={this.handleSelectName}
-        placeholder='Search...'
+          options={searchNames}
+          defaultValue={this.props.initialValue}
+          menuClassName='dropdown-input'
+          onSelect={this.handleSelectName}
+          placeholder='Search...'
         />
 
       </div>
