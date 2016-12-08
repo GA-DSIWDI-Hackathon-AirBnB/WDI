@@ -27,21 +27,11 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Chart</h1>
-        <Chart
-          type={"pie"}
-          width={300}
-          height={300}
-          showTooltips={true}
-          data={
-            {
-              "React": 2,
-              "Relay": 12,
-              "GraphQL": 5,
-            }
-          }
-        />
+      <div id="supercontainer">
+<header><h1>APP NAME</h1></header>
+
+        <div id="container">
+
         <Chart
           type={"bar"}
           width={500}
@@ -50,15 +40,10 @@ export default class App extends Component {
           showTooltips={true}
           data={this.state.data}
         />
-        <DropdownInput
-         options={searchNames}
-         defaultValue={this.props.initialValue}
-         menuClassName='dropdown-input'
-        onSelect={this.handleSelectName}
-        placeholder='Search...'
-        />
-
+        </div>
       </div>
     );
   }
 }
+
+
