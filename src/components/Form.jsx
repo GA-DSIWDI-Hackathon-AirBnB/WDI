@@ -5,15 +5,18 @@ export default class Form extends Component {
   render() {
     return (
       <div className="form">
-        <p>Number of people</p>
-        <input type="number" name="people" min="1" onChange={this.props.numPeople} />
-        <p>Number of rooms</p>
-        <input type="number" name="rooms" min="1" onChange={this.props.numRooms} />
+        <p>People</p>
+        <input id="people" type="number" name="people" min="1" onChange={this.props.numPeople} />
+        <p>Rooms</p>
+        <input id="rooms"type="number" name="rooms" min="1" onChange={this.props.numRooms} />
+        <div id="select1">
         <select onChange={this.props.typeRoom}>
           <option value="Private room">Private Room</option>
           <option value="Shared room">Shared Room</option>
           <option value="Entire home/apt">Entire Home</option>
         </select>
+        </div>
+        <div id="select2">
         <select onChange={this.props.borough}>
           <option value="Manhattan">Manhattan</option>
           <option value="Bronx">Bronx</option>
@@ -21,6 +24,7 @@ export default class Form extends Component {
           <option value="Queens">Queens</option>
           <option value="Staten Island">Staten Island</option>
         </select>
+        </div>
       </div>
     );
   }
