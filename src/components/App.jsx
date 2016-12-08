@@ -61,7 +61,7 @@ export default class App extends Component {
           data={this.state.data}
         />
         </div>
-
+ <footer><h2>COPYRIGHT 2016</h2></footer>
       </div>
     );
   }
