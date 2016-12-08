@@ -52,6 +52,44 @@ export default class App extends Component {
     })
     .catch(err => console.log(err))
   }
+
+  sendMenuResp(){
+    console.log('posting');
+    fetch('http://localhost:5000/result', {
+      headers: {
+        'Content-Type':'application/json'
+      },
+      method:'POST',
+      mode: 'cors',
+      body: JSON.stringify({
+        borough: "Manhattan",
+        neighbourhood: "Upper East Side",
+        room_type: "Private room",
+        accommodates: 1,
+        bedrooms: 1
+      })
+    })
+    .then(() => {
+      console.log('sent');
+      this.getDataResp()
+    })
+    .catch(err => console.log(err))
+  }
+
+  getDataResp(){
+    console.log('geting');
+    fetch('http://localhost:5000/result', {
+      method:'GET',
+      mode: 'cors',
+      dataType: 'json'
+    })
+    .then(r => r.json())
+    .then((data) => {
+      console.log(data);
+    })
+    .catch(err => console.log(err))
+  }
+
   numPeople(e) {
     this.setState({
       people: e.target.value,
@@ -126,39 +164,36 @@ export default class App extends Component {
   render() {
     return (
       <div id="supercontainer">
-<header><h1>APP NAME</h1></header>
-
+        <header><h1>APP NAME</h1></header>
         <div id="container">
+          <Form
+            numPeople={this.numPeople.bind(this)}
+            numRooms={this.numRooms.bind(this)}
+            typeRoom={this.typeRoom.bind(this)}
+            borough={this.borough.bind(this)}
+            man={this.state.man}
+            queen={this.state.queen}
+            brok={this.state.brok}
+            stat={this.state.stat}
+            bronx={this.state.bronx}
+          />
+          <button onClick={this.console.bind(this)}>Check States</button>
+          <button onClick={() => this.sendMenuResp()}>Send Menu Choices</button>
 
-        <Form
-          numPeople={this.numPeople.bind(this)}
-          numRooms={this.numRooms.bind(this)}
-          typeRoom={this.typeRoom.bind(this)}
-          borough={this.borough.bind(this)}
-          man={this.state.man}
-          queen={this.state.queen}
-          brok={this.state.brok}
-          stat={this.state.stat}
-          bronx={this.state.bronx}
-        />
-                <button onClick={this.console.bind(this)}>Check States</button>
-
-        <Chart
-          type={"bar"}
-          width={400}
-          height={400}
-          margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
-          showTooltips={true}
-          data={this.state.data}
-        />
-
-        </div>
-         <div id="footer"><h2>COPYRIGHT 2016</h2></div>
+          <Chart
+            type={"bar"}
+            width={400}
+            height={400}
+            margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
+            showTooltips={true}
+            data={this.state.data}
+          />
 
         </div>
+        <div id="footer"><h2>COPYRIGHT 2016</h2></div>
+
+      </div>
 
     );
   }
 }
-
-
