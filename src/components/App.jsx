@@ -126,7 +126,11 @@ export default class App extends Component {
   }
   render() {
     return (
-      <div>,
+      <div id="supercontainer">
+<header><h1>APP NAME</h1></header>
+
+        <div id="container">
+
         <Form
           numPeople={this.numPeople.bind(this)}
           numRooms={this.numRooms.bind(this)}
@@ -139,18 +143,24 @@ export default class App extends Component {
           bronx={this.state.bronx}
           // specific = {this.state.boroughs[this.state.borough]}
         />
-        <h1>Chart</h1>
+                <button onClick={this.console.bind(this)}>Check States</button>
+
         <Chart
           type={"bar"}
-          width={500}
-          height={500}
+          width={400}
+          height={400}
           margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
           showTooltips={true}
           data={this.state.data}
         />
-        <button onClick={this.console.bind(this)}>Check States</button>
-      </div>
+
+        </div>
+         <div id="footer"><h2>COPYRIGHT 2016</h2></div>
+
+        </div>
+
     );
   }
 }
+
 
