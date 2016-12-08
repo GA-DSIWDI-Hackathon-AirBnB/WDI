@@ -17,6 +17,7 @@ export default class App extends Component {
 
     this.state = {
       borough:"Manhattan",
+
       boroughs: {},
       man: true,
       queen: false,
@@ -121,7 +122,7 @@ export default class App extends Component {
     }
   }
   console(){
-    console.log(this.state.borough)
+    console.log(this.state.boroughs[this.state.borough])
   }
   render() {
     return (
@@ -136,6 +137,7 @@ export default class App extends Component {
           brok={this.state.brok}
           stat={this.state.stat}
           bronx={this.state.bronx}
+          // specific = {this.state.boroughs[this.state.borough]}
         />
         <h1>Chart</h1>
         <Chart
