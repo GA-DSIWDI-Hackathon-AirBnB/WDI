@@ -17,6 +17,7 @@ export default class App extends Component {
 
     this.state = {
       borough:"Manhattan",
+
       boroughs: {},
       man: true,
       queen: false,
@@ -159,7 +160,7 @@ export default class App extends Component {
     }
   }
   console(){
-    console.log(this.state.borough)
+    console.log(this.state.boroughs[this.state.borough])
   }
   render() {
     return (
@@ -180,14 +181,28 @@ export default class App extends Component {
           <button onClick={this.console.bind(this)}>Check States</button>
           <button onClick={() => this.sendMenuResp()}>Send Menu Choices</button>
 
-          <Chart
-            type={"bar"}
-            width={400}
-            height={400}
-            margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
-            showTooltips={true}
-            data={this.state.data}
-          />
+        <Form
+          numPeople={this.numPeople.bind(this)}
+          numRooms={this.numRooms.bind(this)}
+          typeRoom={this.typeRoom.bind(this)}
+          borough={this.borough.bind(this)}
+          man={this.state.man}
+          queen={this.state.queen}
+          brok={this.state.brok}
+          stat={this.state.stat}
+          bronx={this.state.bronx}
+          // specific = {this.state.boroughs[this.state.borough]}
+        />
+                <button onClick={this.console.bind(this)}>Check States</button>
+
+        <Chart
+          type={"bar"}
+          width={400}
+          height={400}
+          margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
+          showTooltips={true}
+          data={this.state.data}
+        />
 
         </div>
         <div id="footer"><h2>COPYRIGHT 2016</h2></div>
