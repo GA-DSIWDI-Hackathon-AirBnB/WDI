@@ -29,29 +29,18 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    fetch(`${this.flaskRoute}/boroughs_neighborhoods`, {
+    fetch(`${this.flaskRoute}/menu_data`, {
       method: 'GET',
       mode: 'cors',
       dataType: 'json'
     })
     .then(r => r.json())
     .then(boroughs => {
-      console.log(boroughs)
+      console.log(boroughs[0])
+      console.log(boroughs[1])
       this.setState({
-        boroughs
-      })
-    })
-    .catch(err => console.log(err))
-    fetch(`${this.flaskRoute}/room`, {
-      method: 'GET',
-      mode: 'cors',
-      dataType: 'json'
-    })
-    .then(r => r.json())
-    .then(rooms => {
-      console.log(rooms)
-      this.setState({
-        rooms
+        boroughs: boroughs[0],
+        rooms: boroughs[1]
       })
     })
     .catch(err => console.log(err))
@@ -70,8 +59,6 @@ export default class App extends Component {
           showTooltips={true}
           data={this.state.data}
         />
-
-
 
       </div>
     );
