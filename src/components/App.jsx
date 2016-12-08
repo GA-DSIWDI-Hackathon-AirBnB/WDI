@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Dropdown from 'react-dropdown'
 import * as d3 from "d3";
 import Chart from "../../node_modules/d3act/lib/components/Chart";
 import './App.css';
@@ -6,6 +7,12 @@ import './App.css';
 export default class App extends Component {
   constructor(props) {
     super(props);
+
+    const options = [
+      'Manhattan', 'Bronx'
+    ];
+
+    const defaultOption = options[0]
 
     this.state = {
         data: [
@@ -43,6 +50,14 @@ export default class App extends Component {
           showTooltips={true}
           data={this.state.data}
         />
+        <DropdownInput
+         options={searchNames}
+         defaultValue={this.props.initialValue}
+         menuClassName='dropdown-input'
+        onSelect={this.handleSelectName}
+        placeholder='Search...'
+        />
+
       </div>
     );
   }
