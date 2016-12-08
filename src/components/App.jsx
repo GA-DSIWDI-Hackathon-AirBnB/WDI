@@ -13,9 +13,11 @@ export default class App extends Component {
     ];
 
     const defaultOption = options[0]
+    this.flaskRoute = 'http://localhost:5000';
 
     this.state = {
       borough:"Manhattan",
+      boroughs: {},
       man: true,
       queen: false,
       brok: false,
@@ -32,6 +34,23 @@ export default class App extends Component {
         { xValue: "Babel", yValue: 5 },
       ],
     };
+  }
+    componentDidMount() {
+    fetch(`${this.flaskRoute}/menu_data`, {
+      method: 'GET',
+      mode: 'cors',
+      dataType: 'json'
+    })
+    .then(r => r.json())
+    .then(boroughs => {
+      console.log(boroughs[0])
+      console.log(boroughs[1])
+      this.setState({
+        boroughs: boroughs[0],
+        rooms: boroughs[1]
+      })
+    })
+    .catch(err => console.log(err))
   }
   numPeople(e) {
     this.setState({
